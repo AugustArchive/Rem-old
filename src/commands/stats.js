@@ -22,7 +22,7 @@ exports.run = (bot, msg) => {
   > Cores: ${os.cpus().length}
   > Library: [discord.js](https://discord.js.org)
   > Discord.js Version: v${Discord.version}
-  > Node.js Version: ${process.version()}
+  > Node.js Version: ${process.version}
   > Rem Version: ${version}
   > Container: ${container}
   `, true)
