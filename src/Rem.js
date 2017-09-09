@@ -36,7 +36,7 @@ bot.on('message', (msg) => {
      let commandFile = require(`./commands/${command}.js`)
      commandFile.run(bot, msg, args)
     } catch (err) {
-      logger.error(`[COMMAND ERROR] Command Error!\n${err.stack}`);
+      console.error(`[COMMAND ERROR] Command Error!\n${err.stack}`);
    }
 });
 
