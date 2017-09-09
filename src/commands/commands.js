@@ -9,7 +9,7 @@ exports.run = (bot, msg) => {
     .addField(`:notes: - Music`, '**Coming Soon**', true)
     .addField(`:hammer_pick: - Developer`, '`exec` `eval`', true)
     .addField(`:gear: - Utility`, '`serverinfo` `stats` `uptime`', true)
-    .addField(`:rofl: - Fun`, '`neko` `ascii` `lewd`', true)
+    .addField(`:rofl: - Fun`, '`neko` `ascii`', true)
     .setTimestamp()
   msg.channel.send({embed});
 };
