@@ -9,6 +9,7 @@ let colour = 'ADD8E6';
 exports.run = (bot, msg) => {
   const embed = new RichEmbed()
   .setTitle(`**>** Rem Stats!`)
+  .setColor(colour)
   .setDescription(`**>** Uptime: ${hd(bot.uptime, { round: true })}`)
   .addField("**>** Misc", `
   > Guilds: ${bot.guilds.size}
@@ -26,5 +27,7 @@ exports.run = (bot, msg) => {
   > Rem Version: ${version}
   > Container: ${container}
   `, true)
+  .setTimestamp()
+  .setFooter(`Rem, The discord boat.`)
 msg.channel.send({embed});
 };
