@@ -7,7 +7,7 @@ bot.login(config.api_keys.Discord);
 bot.on('ready', () => {
   bot.user.setPresence({
    game: {
-     name: config.prefix + "help | [" + bot.guilds.size + "] | " + config.prefix + "inviteme",
+     name: config.prefix + "help | [" + bot.guilds.size + "] | " + config.prefix + "stats",
      type: 0
    }
   });
@@ -20,7 +20,7 @@ bot.on('guildCreate', (guild) => {
   // postServerStats();
 });
 
-bot.on('guildCreate', (guild) => {
+bot.on('guildDelete', (guild) => {
   bot.channels.get('355938690322661376').send(`:x: **|** Left a new guild!\n\`\`\`asciidoc\n= Guild Infomation =\nGuild Name (ID)     :: ${guild.name} (${guild.id})\`\`\``);
   console.log(`[LEFTED GUILD] Rem lefted a new guild!\n${guild.name} (${guild.id})`);
   // postServerStats();
