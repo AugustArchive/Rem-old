@@ -12,7 +12,7 @@ function postServerStats() {
   .then(console.log(`[discordbots.org] Posted stats!`))
   .catch(e => console.error(e.stack))
   
-  snek.post(`https://discord.services/api/bots/${bot.user.id}/`)
+  snek.post(`http://discord.services/api/bots/${bot.user.id}/`)
   .set("Authorization", config.api_keys.directory)
   .send({ guild_count: bot.guilds.size })
   .then(console.log(`[discord.services] Posted stats!`))
