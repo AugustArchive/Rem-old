@@ -72,7 +72,7 @@ bot.on("guildMemberAdd", (member) => {
    bot.channels.get("358860760308252672").send(`<@${member.user.id}> joined the server; Make sure to read <#357022020115890189> for infomation!`);
 });
 
-bot.on("guildMemberAdd", (member) => {
+bot.on("guildMemberRemove", (member) => {
    if (member.guild.id != '332957805432799243') return;
    
    bot.channels.get("358860760308252672").send(`<@${member.user.id}> left the server..`);
