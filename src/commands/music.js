@@ -2,7 +2,7 @@ const yt = require("ytdl-core");
 let colour = 'ADD8E6';
 const ytAPI = require("simple-youtube-api");
 const cfg = require('../lib/config.json');
-import { RichEmbed } from 'discord.js';
+const { RichEmbed } = require("discord.js")
 const YouTube = new ytAPI(cfg.api_keys.Youtube);
 
 exports.run = (bot, msg, args) => {
