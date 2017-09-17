@@ -1,7 +1,9 @@
 {
   "prefix": "r/",
   "api_keys": {
-   "Discord": "MzU1OTMwOTM4Mzk3Njg3ODA4.DJT-Bw.8krk9RlXoJOlkzhYZln4iNk_h4w"
+   "Discord": "MzU1OTMwOTM4Mzk3Njg3ODA4.DJT-Bw.8krk9RlXoJOlkzhYZln4iNk_h4w",
+   "directory": "nmcorl5is1b381noknwce29elmtqgnl0tx73ax9i7ck8ml52xd",
+   "oliyBots": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI4MDE1ODI4OTY2NzU1NTMyOCIsImlhdCI6MTUwMTM4ODUzOH0.0-I09UHdGm1aP2sZASaIZrJhfg5w_Cc4D7bq8KXTL1o"
   },
   "devs": [ "280158289667555328" ]
 }
