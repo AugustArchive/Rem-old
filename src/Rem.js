@@ -1,6 +1,23 @@
 const { Client } = require('discord.js');
 const config = require('./lib/config.json');
 let bot = new Client({ disableEveryone: true, autoReconnect: true });
+const snek = require("snekfetch");
+
+function postServerStats() {
+  snek.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
+  .set("Authorization", config.api_keys.oliyBots)
+  .send({
+      server_count: bot.guilds.size
+  })
+  .then(console.log(`[discordbots.org] Posted stats!`))
+  .catch(e => console.error(e.stack))
+  
+  snek.post(`https://discord.services/api/bots/${bot.user.id}/`)
+  .set("Authorization", config.api_keys.directory)
+  .send({ guild_count: bot.guilds.size })
+  .then(console.log(`[discord.services] Posted stats!`))
+  .catch(e => console.error(e.stack))
+}
 
 bot.login(config.api_keys.Discord);
 
@@ -13,7 +30,11 @@ function setGame() {
     "With Mio-chan",
     "Facing Ayana",
     "With my Lucario plush!",
-    "With my Umbreon plushie!"
+    "With my Umbreon plushie!",
+    "With Wessel! OwO",
+    "With Hansen! OwO",
+    "With Desii! OwO",
+    "With Mantaro-chan"
   ];
   bot.user.setPresence({
     status: 'online',
@@ -28,6 +49,7 @@ function setGame() {
 
 bot.on('ready', () => {
   setGame();
+  postServerStats();
   bot.setInterval(setGame, 50000);
   console.log(`[READY] ${bot.user.username} is ready!`);
 });
@@ -35,13 +57,13 @@ bot.on('ready', () => {
 bot.on('guildCreate', (guild) => {
   bot.channels.get('358052869515116548').send(`🆕 **|** Joined a new guild!\n\`\`\`asciidoc\n= Guild Infomation =\nGuild Name (ID)     :: ${guild.name} (${guild.id})\`\`\``);
   console.log(`[LEFTED GUILD] Rem joined a new guild!\n${guild.name} (${guild.id})`);
-  // postServerStats();
+  postServerStats();
 });
 
 bot.on('guildDelete', (guild) => {
   bot.channels.get('358052869515116548').send(`:x: **|** Left a new guild!\n\`\`\`asciidoc\n= Guild Infomation =\nGuild Name (ID)     :: ${guild.name} (${guild.id})\`\`\``);
   console.log(`[LEFTED GUILD] Rem lefted a new guild!\n${guild.name} (${guild.id})`);
-  // postServerStats();
+  postServerStats();
 });
 
 bot.on('message', (msg) => {
