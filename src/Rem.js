@@ -41,7 +41,7 @@ function setGame() {
     afk: 'false',
     game: {
       url: 'https://twitch.tv/discordapp',
-      name: `r/help | ${games[Math.floor(Math.random() * games.length)]} [${bot.guilds.size}]`,
+      name: `!r.help | ${games[Math.floor(Math.random() * games.length)]} [${bot.guilds.size}]`,
       type: 0
     }
   });
