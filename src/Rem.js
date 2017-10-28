@@ -70,6 +70,10 @@ bot.on("guildMemberAdd", (member) => {
    if (member.guild.id != '332957805432799243') return;
    
    bot.channels.get("358860760308252672").send(`<@${member.user.id}> joined the server; Make sure to read <#357022020115890189> for infomation!`);
+   
+   let role = member.guild.roles.find('name', 'Students');
+   
+   member.addRole(role);
 });
 
 bot.on("guildMemberRemove", (member) => {
