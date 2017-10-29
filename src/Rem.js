@@ -60,14 +60,14 @@ bot.on('ready', () => {
 });
 
 bot.on('guildCreate', (guild) => {
-  bot.channels.get('358052869515116548').send(`🆕 **|** Joined a new guild!\n\`\`\`asciidoc\n= Guild Infomation =\nGuild Name (ID)     :: ${guild.name} (${guild.id})\`\`\``);
-  console.log(`[LEFTED GUILD] Rem joined a new guild!\n${guild.name} (${guild.id})`);
+  bot.channels.get('358052869515116548').send(`🆕 **|** Joined a new guild!\nGuild Name: ${guild.name}\nGuild ID: ${guild.id}\nGuild Members: ${guild.memberCount}\nGuild Owner: ${guild.owner.user.tag}`);
+  console.log(`[GUILD]: Rem has joined a guild!\nGuild Name: ${guild.name}\nGuild ID: ${guild.id}\nGuild Members: ${guild.memberCount}\nGuild Owner: ${guild.owner.user.tag}`);
   postServerStats();
 });
 
 bot.on('guildDelete', (guild) => {
-  bot.channels.get('358052869515116548').send(`:x: **|** Left a new guild!\n\`\`\`asciidoc\n= Guild Infomation =\nGuild Name (ID)     :: ${guild.name} (${guild.id})\`\`\``);
-  console.log(`[LEFTED GUILD] Rem lefted a new guild!\n${guild.name} (${guild.id})`);
+  bot.channels.get('358052869515116548').send(`:x: **|** Left a new guild!\nGuild Name: ${guild.name}\nGuild ID: ${guild.id}\nGuild Owner: ${guild.owner.user.tag}`);
+  console.log(`[GUILD]: Rem lefted a new guild!\n${guild.name} (${guild.id})`);
   postServerStats();
 });
 
