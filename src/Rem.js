@@ -17,6 +17,12 @@ function postServerStats() {
   .send({ guild_count: bot.guilds.size })
   .then(console.log(`[discord.services] Posted stats!`))
   .catch(e => console.error(e.stack))
+  
+  snek.post(`https://list.passthemayo.space/api/bots/${bot.user.id}`)
+      .set("Authorization", config.api_keys.mayoBotList)
+      .send({ server_count: bot.guilds.size })
+      .then(console.log(`[list.passthemayo.space] Posted stats!`))
+      .catch(e => console.error(e.stack))
 }
 
 bot.login(config.api_keys.Discord);
@@ -40,8 +46,7 @@ function setGame() {
     status: 'online',
     afk: 'false',
     game: {
-      url: 'https://twitch.tv/discordapp',
-      name: `!r.help | ${games[Math.floor(Math.random() * games.length)]} [${bot.guilds.size}]`,
+      name: `!r.help | ${games[Math.floor(Math.random() * games.length)]} | ${bot.guilds.size} guilds!`,
       type: 0
     }
   });
@@ -99,5 +104,5 @@ bot.on('message', (msg) => {
 bot.on('error', e => logger.error(e.stack));
 bot.on('warn', e => logger.warn(e.stack));
 process.on('unhandledRejection', e => {
-  console.error(`[UNHANDLEDREJECTION]\n${e.stack}`);
+  console.error;
 });
