@@ -30,7 +30,6 @@ bot.login(config.api_keys.Discord);
 function setGame() {
   let games = [
     "With August! OwO",
-    `On ${bot.guilds.size} guilds!`,
     "With a ball of yarn!",
     "With Aqua-sama",
     "With Mio-chan",
@@ -40,7 +39,8 @@ function setGame() {
     "With Wessel! OwO",
     "With Hansen! OwO",
     "With Desii! OwO",
-    "With Mantaro-chan"
+    "With Mantaro-chan",
+    "Tsumiki boat exists? [https://polr.me/TsumikiBoat]"
   ];
   bot.user.setPresence({
     status: 'online',
@@ -60,13 +60,27 @@ bot.on('ready', () => {
 });
 
 bot.on('guildCreate', (guild) => {
-  bot.channels.get('358052869515116548').send(`🆕 **|** Joined a new guild!\nGuild Name: ${guild.name}\nGuild ID: ${guild.id}\nGuild Members: ${guild.memberCount}\nGuild Owner: ${guild.owner.user.tag}`);
+    bot.channels.get('358052869515116548').send(`
+   __**Rem joined a new guild!**__
+   
+   \`Guild Name\`: ${guild.name}
+   \`Guild Members\`: ${guild.memberCount}
+   \`Guild ID\`: ${guild.id}
+   \`Guild Owner\`: ${guild.owner.user.tag}
+   `);
   console.log(`[GUILD]: Rem has joined a guild!\nGuild Name: ${guild.name}\nGuild ID: ${guild.id}\nGuild Members: ${guild.memberCount}\nGuild Owner: ${guild.owner.user.tag}`);
   postServerStats();
 });
 
 bot.on('guildDelete', (guild) => {
-  bot.channels.get('358052869515116548').send(`:x: **|** Left a new guild!\nGuild Name: ${guild.name}\nGuild ID: ${guild.id}\nGuild Owner: ${guild.owner.user.tag}`);
+   bot.channels.get('358052869515116548').send(`
+   __**Rem left a new guild!**__
+   
+   \`Guild Name\`: ${guild.name}
+   \`Guild Members\`: ${guild.memberCount}
+   \`Guild ID\`: ${guild.id}
+   \`Guild Owner\`: ${guild.owner.user.tag}
+   `);
   console.log(`[GUILD]: Rem lefted a new guild!\n${guild.name} (${guild.id})`);
   postServerStats();
 });
@@ -96,6 +110,7 @@ bot.on('message', (msg) => {
     try {
      let commandFile = require(`./commands/${command}.js`)
      commandFile.run(bot, msg, args)
+     console.log(`[COMMAND]: ${msg.author.username} used command ${msg.content}`);
     } catch (err) {
       console.error(`[COMMAND ERROR] Command Error!\n${err.stack}`);
    }
@@ -104,5 +119,5 @@ bot.on('message', (msg) => {
 bot.on('error', e => logger.error(e.stack));
 bot.on('warn', e => logger.warn(e.stack));
 process.on('unhandledRejection', e => {
-  console.error;
+  console.error();
 });
