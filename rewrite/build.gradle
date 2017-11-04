@@ -9,8 +9,6 @@ plugins {
   id 'com.github.johnrengelman.shadow' version '1.2.4'
 }
 
-mainClassName = "space.ohlookitsAugust.Rem.RemBoat"
-
 def ver = new Version(major: 2, minor: 0, revision: 1)
 ver = ver.toString()
 
