@@ -1,0 +1,79 @@
+/* Rem's build.gradle :^) */
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+  // Compile Java
+  id 'java'
+  // Makes fatJars.
+  id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+mainClassName = "space.ohlookitsAugust.Rem.RemBoat"
+
+def ver = new Version(major: 2, minor: 0, revision: 1)
+ver = ver.toString()
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+   compile 'net.dv8tion:JDA:3.3.1_300'
+   compile 'com.google.code.gson:gson:2.8.0'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.10'
+}
+
+task prepareSource(type: Copy) {
+	from 'src/main/java'
+	into 'build/prepared-src'
+	filter(ReplaceTokens, tokens: [
+		version: ver.toString()
+	])
+	dependsOn clean
+}
+prepareSource.dependsOn clean
+
+compileJava {
+	source = prepareSource.destinationDir
+	classpath = sourceSets.main.compileClasspath
+	options.encoding = 'UTF-8'
+	dependsOn prepareSource
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+build.dependsOn shadowJar
+
+task cleanDistTar(type: Delete) { delete files(distTar) }
+distTar { classifier = "trash" }
+distTar.finalizedBy cleanDistTar
+
+task cleanDistZip(type: Delete) { delete files(distZip) }
+distZip { classifier = "trash" }
+distZip.finalizedBy cleanDistZip
+
+task cleanShittyJar(type: Delete) { delete files(jar) }
+jar { classifier = "trash" }
+jar.finalizedBy cleanShittyJar
+
+shadowJar {
+	classifier = ""
+}
+
+class Version {
+	String major, minor, revision
+
+	String toString() {
+		"v${major}.${minor}.${revision}"
+	}
+}
