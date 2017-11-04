@@ -1,3 +1,5 @@
+package space.ohlookitsAugust.Rem.commands;
+
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import space.ohlookitsAugust.Rem.handlers.Command;
