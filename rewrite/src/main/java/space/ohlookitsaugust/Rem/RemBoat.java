@@ -11,6 +11,7 @@ import space.ohlookitsaugust.Rem.commands.HelpCommand;
 import space.ohlookitsaugust.Rem.handlers.Command;
 import space.ohlookitsaugust.Rem.handlers.CommandCats;
 import space.ohlookitsaugust.Rem.commands.EvalCommand;
+import space.ohlookitsaugust.Rem.commands.PingCommand;
 import space.ohlookitsaugust.Rem.utils.ConfigReader;
 import space.ohlookitsaugust.Rem.utils.Utils;
 
@@ -24,14 +25,15 @@ public class RemBoat
       public static void main(String[] args) throws Exception
       {
           ConfigReader config = new ConfigReader("./config.txt", " :: ");
-          cats.addCommand(new EvalCommand("eval", "evals arbitrary JS - Owner Only", Command.Category.UTILITY, true))
-                  .addCommand(new HelpCommand("help", "help commands", Command.Category.REM, true));
+              cats.addCommand(new EvalCommand("eval", "evals arbitrary JS - Owner Only", Command.Category.UTILITY, true))
+                  .addCommand(new HelpCommand("help", "help commands", Command.Category.REM, true))
+                  .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true));
         
             jda = new JDABuilder(AccountType.BOT)
                    .setEventManager(new AnnotatedEventManager())
                    .setToken(config.get("token"))
                    .setAutoReconnect(true)
-                   .setGame(Game.of("!r.help | rem.ohlookitsAugust.space"))
+                   .setGame(Game.of("!r.help | v2.0.1 | Running on JDA! OwO"))
                    .addEventListener(cats)
                    .buildBlocking();
       }
