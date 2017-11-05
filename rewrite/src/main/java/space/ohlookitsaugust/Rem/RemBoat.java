@@ -13,6 +13,7 @@ import space.ohlookitsaugust.Rem.handlers.Command;
 import space.ohlookitsaugust.Rem.handlers.CommandCats;
 import space.ohlookitsaugust.Rem.commands.EvalCommand;
 import space.ohlookitsaugust.Rem.commands.PingCommand;
+import space.ohlookitsaugust.Rem.commands.StatsCommand;
 import space.ohlookitsaugust.Rem.utils.ConfigReader;
 import space.ohlookitsaugust.Rem.utils.Utils;
 
@@ -28,9 +29,10 @@ public class RemBoat
           ConfigReader config = new ConfigReader("./config.txt", " :: ");
               cats.addCommand(new EvalCommand("eval", "evals arbitrary JS - Owner Only", Command.Category.UTILITY, true))
                   .addCommand(new HelpCommand("help", "help commands", Command.Category.REM, true))
-                  .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true));
+                  .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true))
+                  .addCommand(new StatsCommand("stats", "Show me stats!", Command.Category.REM, true));
                   
-            DiscordBotsAPI apiWithToken = new DiscordBotsAPI(config.get('oliyBots'));
+            DiscordBotsAPI apiWithToken = new DiscordBotsAPI(config.get("oliyBots"));
         
             jda = new JDABuilder(AccountType.BOT)
                    .setEventManager(new AnnotatedEventManager())
