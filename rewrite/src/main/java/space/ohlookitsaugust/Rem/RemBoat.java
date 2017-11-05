@@ -7,12 +7,12 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.hooks.AnnotatedEventManager;
 
-import space.ohlookitsAugust.Rem.commands.HelpCommand;
-import space.ohlookitsAugust.Rem.handlers.Command;
-import space.ohlookitsAugust.Rem.handlers.CommandCats;
-import space.ohlookitsAugust.Rem.commands.EvalCommand;
-import space.ohlookitsAugust.Rem.utils.ConfigReader;
-import space.ohlookitsAugust.Rem.utils.Utils;
+import space.ohlookitsaugust.Rem.commands.HelpCommand;
+import space.ohlookitsaugust.Rem.handlers.Command;
+import space.ohlookitsaugust.Rem.handlers.CommandCats;
+import space.ohlookitsaugust.Rem.commands.EvalCommand;
+import space.ohlookitsaugust.Rem.utils.ConfigReader;
+import space.ohlookitsaugust.Rem.utils.Utils;
 
 
 public class RemBoat
