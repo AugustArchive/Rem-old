@@ -8,7 +8,7 @@ import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.hooks.AnnotatedEventManager;
 import com.github.natanbc.discordbotsapi.DiscordBotsAPI;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory
+import org.slf4j.LoggerFactory;
 
 import space.ohlookitsaugust.Rem.commands.HelpCommand;
 import space.ohlookitsaugust.Rem.handlers.Command;
