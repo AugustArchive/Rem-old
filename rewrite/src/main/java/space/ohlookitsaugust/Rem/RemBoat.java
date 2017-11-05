@@ -29,8 +29,7 @@ public class RemBoat
           ConfigReader config = new ConfigReader("./config.txt", " :: ");
               cats.addCommand(new EvalCommand("eval", "evals arbitrary JS - Owner Only", Command.Category.UTILITY, true))
                   .addCommand(new HelpCommand("help", "help commands", Command.Category.REM, true))
-                  .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true))
-                  .addCommand(new StatsCommand("stats", "Show me stats!", Command.Category.REM, true));
+                  .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true));
                   
             DiscordBotsAPI apiWithToken = new DiscordBotsAPI(config.get("oliyBots"));
         
@@ -42,6 +41,7 @@ public class RemBoat
                    .addEventListener(cats)
                    .buildBlocking();
             int serverCount = jda.getGuilds().size();
-            apiWithToken.postStats(0, 1, serverCount);
+            int user = jda.getSelfUser().getId();
+            apiWithToken.postStats(user, 0, 1, serverCount);
       }
 }
