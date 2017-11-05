@@ -13,7 +13,6 @@ import space.ohlookitsaugust.Rem.handlers.Command;
 import space.ohlookitsaugust.Rem.handlers.CommandCats;
 import space.ohlookitsaugust.Rem.commands.EvalCommand;
 import space.ohlookitsaugust.Rem.commands.PingCommand;
-import space.ohlookitsaugust.Rem.commands.StatsCommand;
 import space.ohlookitsaugust.Rem.utils.ConfigReader;
 import space.ohlookitsaugust.Rem.utils.Utils;
 
