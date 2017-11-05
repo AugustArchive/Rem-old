@@ -1,4 +1,4 @@
-group 'space.ohlookitsAugust'
+group 'space.ohlookitsaugust'
 version '2.0.1'
 
 apply plugin: 'java'
@@ -9,7 +9,7 @@ task fatJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'Thonkery Discord Bot',
                 'Implementation-Version': version,
-                'Main-Class': 'space.ohlookitsAugust.Rem.RemBoat'
+                'Main-Class': 'space.ohlookitsaugust.Rem.RemBoat'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
