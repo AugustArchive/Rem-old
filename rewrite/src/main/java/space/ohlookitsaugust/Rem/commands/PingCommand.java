@@ -11,6 +11,6 @@ public class PingCommand extends Command {
   
   @Override
   public void execute(List<String> arguments, MessageReceivedEvent event) {
-    event.getChannel().sendMessage(Math.round(event.getJda().getPing() + "ms");
+    event.getChannel().sendMessage("Ping | `" + Math.round(event.getJDA().getPing()) + "ms`");
   }
 }
