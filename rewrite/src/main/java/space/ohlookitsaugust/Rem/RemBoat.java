@@ -7,6 +7,8 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.hooks.AnnotatedEventManager;
 import com.github.natanbc.discordbotsapi.DiscordBotsAPI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory
 
 import space.ohlookitsaugust.Rem.commands.HelpCommand;
 import space.ohlookitsaugust.Rem.handlers.Command;
@@ -22,6 +24,7 @@ public class RemBoat
       public static final Gson gson = new Gson();
       public static CommandCats cats = new CommandCats("!r.");
       public static JDA jda = null;
+      public static final Logger log = LoggerFactory.getLogger("RemBoat");
       
       public static void main(String[] args) throws Exception
       {
@@ -31,16 +34,17 @@ public class RemBoat
                   .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true));
                   
             DiscordBotsAPI apiWithToken = new DiscordBotsAPI(config.get("oliyBots"));
+            
+            log.info("Beginning to start Rem, the discord boat.");
         
             jda = new JDABuilder(AccountType.BOT)
                    .setEventManager(new AnnotatedEventManager())
                    .setToken(config.get("token"))
                    .setAutoReconnect(true)
-                   .setGame(Game.of("!r.help | v2.0.1 | Running on JDA! OwO"))
+                   .setGame(Game.of("!r.help | v2.0.1 | Am I that cool?"))
                    .addEventListener(cats)
                    .buildBlocking();
             int serverCount = jda.getGuilds().size();
-            int user = jda.getSelfUser().getId();
-            apiWithToken.postStats(user, 0, 1, serverCount);
+            apiWithToken.postStats(0, 1, serverCount);
       }
 }
