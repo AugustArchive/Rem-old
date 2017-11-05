@@ -6,6 +6,7 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.hooks.AnnotatedEventManager;
+import com.github.natanbc.discordbotsapi.DiscordBotsAPI;
 
 import space.ohlookitsaugust.Rem.commands.HelpCommand;
 import space.ohlookitsaugust.Rem.handlers.Command;
@@ -28,6 +29,8 @@ public class RemBoat
               cats.addCommand(new EvalCommand("eval", "evals arbitrary JS - Owner Only", Command.Category.UTILITY, true))
                   .addCommand(new HelpCommand("help", "help commands", Command.Category.REM, true))
                   .addCommand(new PingCommand("ping", "ping in ms", Command.Category.UTILITY, true));
+                  
+            DiscordBotsAPI apiWithToken = new DiscordBotsAPI(config.get('oliyBots'));
         
             jda = new JDABuilder(AccountType.BOT)
                    .setEventManager(new AnnotatedEventManager())
@@ -36,5 +39,7 @@ public class RemBoat
                    .setGame(Game.of("!r.help | v2.0.1 | Running on JDA! OwO"))
                    .addEventListener(cats)
                    .buildBlocking();
+            int serverCount = jda.getGuilds().size();
+            apiWithToken.postStats(0, 1, serverCount);
       }
 }
