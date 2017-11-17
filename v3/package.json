@@ -1,0 +1,13 @@
+{
+  "name": "rem",
+  "description": "Rem, the discord bot.",
+  "version": "3.0.0",
+  "author": "ohlookitsAugust (Chris)",
+  "devdependencies": {},
+  "dependencies": {
+    "discord.js": "*",
+    "snekfetch": "*",
+    "humanize-duration": "*",
+    "uws": "*"
+  }
+}
