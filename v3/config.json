@@ -1,0 +1,15 @@
+{
+  "prefix": "!r.",
+  "api_keys": {
+     "Discord": {
+       "login": "MzU1OTMwOTM4Mzk3Njg3ODA4.DPFFcw.ZYWViJcHx6oYfhOkDvB1KK1jtu4"
+     },
+     "oliyBots": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1NTkzMDkzODM5NzY4NzgwOCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTA1NjY5OTUwfQ.8I6h9AphZCOYiihwXw5zgrnoPZktansuJ7FEOIzS-lM"
+  },
+  "devs": "",
+  "links": {
+    "Patreon": "https://ohlookitsaugust.space/patreon",
+    "Discord": "https://ohlookitsaugust.space/discord",
+    "Hastebin": "https://haste.passthemayo.space/"
+  }
+}
