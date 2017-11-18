@@ -6,7 +6,7 @@ const { Client: RemClient } = require('discord.js'),
       
 function postServerStats() {
    // post to discordbots.org
-   snekfetch.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
+   snek.post(`https://discordbots.org/api/bots/${bot.user.id}/stats`)
    .set("Authorization", config.api_keys.oliyBots)
    .send({
      server_count: bot.guilds.size,
@@ -17,7 +17,7 @@ function postServerStats() {
    .catch(e => console.error(e.body));
    /*
    // post to bots.discord.pw
-   snekfetch.post(`https://bots.discord.pw/api/bots/${bot.user.id}/stats`)
+   snek.post(`https://bots.discord.pw/api/bots/${bot.user.id}/stats`)
    .set("Authorization", config.api_keys.discordBoats)
    .send({
      server_count: bot.guilds.size
