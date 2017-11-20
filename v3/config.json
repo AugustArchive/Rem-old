@@ -11,5 +11,8 @@
     "Patreon": "https://ohlookitsaugust.space/patreon",
     "Discord": "https://ohlookitsaugust.space/discord",
     "Hastebin": "https://haste.passthemayo.space/"
+  },
+  "settings": {
+    "embedColour": "#ADD8E6"
   }
 }
